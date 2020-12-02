@@ -1,10 +1,8 @@
 // Your code goes here
 const nav = document.querySelectorAll(".nav");
 const logo = document.querySelector("h1");
-const intro = document.querySelector(".intro");
 const content = document.querySelectorAll("p");
 const imgContent = document.querySelectorAll(".img");
-const text = document.querySelectorAll("p");
 
 
 
@@ -37,18 +35,19 @@ Array.from(content).forEach((int)=>{
             event.target.style.textShadow = "";
         },600)
     },false)
-})
+});
 
 Array.from(imgContent).forEach((img)=>{
     img.addEventListener('mouseout', event =>{
         event.target.style.transform = "rotate(7deg)";
+        
         setTimeout(()=>{
             event.target.style.transform = "rotate(-7deg)"
         },250)
 
     },false)
-})
-// this before i figured out .forEach
+});
+// this is before i figured out .forEach
 // imgContent[0].addEventListener("mouseout", event =>{
 //     event.target.style.transform = 'rotate(7deg)';
 //     setTimeout(function(){
@@ -98,11 +97,31 @@ window.addEventListener("scroll", (event) =>{
             para.style.outline= "thick solid blue"; 
     })}
      
-    // setInterval(() => {
-    //     let 
-    // }, interval);
+});
+
+
+window.addEventListener("scroll", (event) =>{
+    let scroll = window.scrollY;
+    if(scroll > 300){
+        Array.from(content).forEach((para) =>{
+            para.style.outline = "thick solid yellow"; 
+        });
+        
+    }else{
+        Array.from(content).forEach((para)=>{
+            para.style.outline= "thick solid blue"; 
+    })}
+     
+});
+
+window.addEventListener("keydown", (event)=>{
+    alert("you win!");
 });
 
 window.addEventListener("load", (event)=>{
-    
-})
+    alert("page is finished loading");
+});
+
+window.addEventListener("keyup", (event)=>{
+    alert("leave page");
+});
